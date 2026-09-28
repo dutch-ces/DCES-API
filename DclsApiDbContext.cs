@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using API.Players;
+using Microsoft.EntityFrameworkCore;
 
 public class DclsApiDbContext : DbContext
 {
@@ -6,6 +7,7 @@ public class DclsApiDbContext : DbContext
     {
     }
 
-    
+    public DbSet<Player> Players { get; set; }
+    public DbSet<PlayerTeams> PlayerTeams { get; set; }
 }
 
