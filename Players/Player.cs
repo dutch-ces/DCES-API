@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using API.Teams;
+using System.ComponentModel.DataAnnotations;
 
 namespace API.Players
 {
@@ -14,6 +15,6 @@ namespace API.Players
         [MaxLength(2)]
         public required string Nationality { get; set; }
 
-        // Association ID
+        public Association? Association { get; set; }
     }
 }
