@@ -7,13 +7,13 @@ namespace API.Players
     {
         public Guid Id { get; set; }
 
-        // Team
+        public required Team Team { get; set; }
 
         public required Player Player { get; set; }
 
-        public Boolean IsCaptain { get; set; } = false;
+        public bool IsCaptain { get; set; } = false;
 
-        public Boolean IsCoach { get; set; } = false;
+        public bool IsCoach { get; set; } = false;
 
         public PlayerType Type { get; set; } = PlayerType.NonPlayer;
     }
