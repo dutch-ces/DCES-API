@@ -1,17 +1,19 @@
 ﻿using API.Division;
 using API.Teams;
 using System.ComponentModel.DataAnnotations;
-
-public class Team
+namespace API.Teams
 {
-    public Guid Id { get; set; }
+    public class Team
+    {
+        public Guid Id { get; set; }
 
-    public required string Name { get; set; }
+        public required string Name { get; set; }
 
-    public Association? Association { get; set; }
+        public Association? Association { get; set; }
 
-    [MaxLength(5)]
-    public required string Split { get; set; }
+        [MaxLength(5)]
+        public required string Split { get; set; }
 
-    public required Division Division { get; set; }
-}
+        public required Division Division { get; set; }
+    }   
+}   
