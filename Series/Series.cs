@@ -1,4 +1,6 @@
-﻿public class Series
+﻿using System.ComponentModel.DataAnnotations;
+
+public class Series
 {
     public Guid Id { get; set; }
 
@@ -6,6 +8,7 @@
 
     public required int Stage { get; set; }
 
+    [Range(1, 7, ErrorMessage = "Round must be between 1 and 7.")]
     public required int Round { get; set; }
 
     public bool IsUpper { get; set; }
