@@ -1,20 +1,16 @@
-﻿using API.Teams;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
-namespace API.Players
+public class Player
 {
-    public class Player
-    {
-        [Key]
-        public Guid Id { get; set; }
+    [Key]
+    public Guid Id { get; set; }
 
-        public required string DiscordName { get; set; }
+    public required string DiscordName { get; set; }
 
-        public required string DiscordUserName { get; set; }
+    public required string DiscordUserName { get; set; }
 
-        [MaxLength(2)]
-        public required string Nationality { get; set; }
+    [MaxLength(2)]
+    public required string Nationality { get; set; }
 
-        public Association? Association { get; set; }
-    }
+    public Association? Association { get; set; }
 }

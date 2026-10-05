@@ -1,4 +1,4 @@
-﻿public class Match
+﻿public class MatchCS2
 {
     public Guid Id { get; set; }
 

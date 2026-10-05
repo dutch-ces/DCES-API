@@ -1,12 +1,9 @@
-﻿namespace API.Champions 
+﻿public class Champion
 {
-    public class Champion
-    {
-        public int Id { get; set; }
+    public int Id { get; set; }
 
-        public string ChampionName { get; set; }
+    public required string ChampionName { get; set; }
 
-        public string ChampionRiotName { get; set; }
+    public required string ChampionRiotName { get; set; }
 
-    }
 }

@@ -1,32 +1,26 @@
-﻿using API.Teams;
-using API.Series;
-
-namespace API.match
+﻿public class Match
 {
-    public class Match
-    {
-        public Guid Id { get; set; }
+    public Guid Id { get; set; }
 
-        public required Team BlueTeam { get; set; } = null!;
+    public required Team BlueTeam { get; set; } = null!;
 
-        public required Team RedTeam { get; set; } = null!;
+    public required Team RedTeam { get; set; } = null!;
 
-        public required Team Winner { get; set; } = null!;
+    public required Team Winner { get; set; } = null!;
 
-        public required Series Series { get; set; } = null!;
+    public required Series Series { get; set; } = null!;
 
-        public string GameId { get; set; } = string.Empty;
+    public string GameId { get; set; } = string.Empty;
 
-        public Team? FirstDragon { get; set; }
+    public Team? FirstDragon { get; set; }
 
-        public Team? FirstBaron { get; set; }
+    public Team? FirstBaron { get; set; }
 
-        public Team? FirstTower { get; set; }
+    public Team? FirstTower { get; set; }
 
-        public DateTime Date { get; set; } = DateTime.Now;
+    public DateTime Date { get; set; } = DateTime.Now;
 
-        public int Duration { get; set; }
+    public int Duration { get; set; }
 
-        public bool Forfeit { get; set; } = false;
-    }
+    public bool Forfeit { get; set; } = false;
 }

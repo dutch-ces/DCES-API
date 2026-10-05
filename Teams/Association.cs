@@ -1,9 +1,6 @@
-﻿namespace API.Teams
+﻿public class Association
 {
-    public class Association
-    {
-        public Guid Id { get; set; }
+    public Guid Id { get; set; }
 
-        public required string Name { get; set; }
-    }
+    public required string Name { get; set; }
 }
