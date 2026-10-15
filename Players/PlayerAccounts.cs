@@ -1,4 +1,5 @@
-﻿using API.Players;
+﻿using System.ComponentModel.DataAnnotations;
+using API.Players;
 
 public class PlayerAccounts
 {
@@ -6,6 +7,7 @@ public class PlayerAccounts
 
     public required Player Player { get; set; }
 
+    [MaxLength(23)]
     public string SummonerName { get; set; } = string.Empty;
 
     public DateTime OldestDate { get; set; } = DateTime.Now;
