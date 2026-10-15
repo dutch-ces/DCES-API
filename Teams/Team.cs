@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using API.Base;
 
-public class Team
+public class Team : IDeletable
 {
     public Guid Id { get; set; }
 
@@ -13,4 +14,6 @@ public class Team
     public required string Split { get; set; }
 
     public required Division Division { get; set; }
+    public bool IsDeleted { get; set; }
+    public DateTime? DeletedAt { get; set; }
 }   

@@ -67,9 +67,10 @@ public class Repository<T> : IRepository<T> where T : class
 
     public virtual void Update(T entity) => Set.Update(entity);
 
-    public virtual void Remove(T entity) => Set.Remove(entity);
+    // Goes through Context (not Set) so DbContext.Remove overrides, like soft delete, apply.
+    public virtual void Remove(T entity) => Context.Remove(entity);
 
-    public virtual void RemoveRange(IEnumerable<T> entities) => Set.RemoveRange(entities);
+    public virtual void RemoveRange(IEnumerable<T> entities) => Context.RemoveRange(entities);
 
     public virtual Task<int> SaveChangesAsync(CancellationToken ct = default)
         => Context.SaveChangesAsync(ct);
