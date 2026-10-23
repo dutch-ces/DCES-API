@@ -11,4 +11,7 @@ public class PlayerAccounts
     public string SummonerName { get; set; } = string.Empty;
 
     public DateTime OldestDate { get; set; } = DateTime.Now;
+
+    [MaxLength(5)]
+    public string Region { get; set; } 
 }
