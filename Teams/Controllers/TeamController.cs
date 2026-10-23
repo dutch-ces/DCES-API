@@ -1,30 +1,17 @@
-using API.Teams.AssociationDTOs;
-
-namespace API.Teams.Controllers;
-
-public class TeamController(IRepository<Team> teamRepository)
+public class TeamController(TeamService teamService)
 {
-    public async Task<string> CreateTeam(TeamCreate teamCreate)
+    public async Task<BaseResult<string>> CreateTeam(TeamCreate teamCreate)
     {
         try
         {
-            Team newTeam = new Team
-            {
-                Name = teamCreate.Name,
-                Association = teamCreate.Association,
-                Division = teamCreate.division,
-                
-            };
-
-            await teamRepository.AddAsync(newTeam);
+            Team newTeam = await teamService.CreateTeam(teamCreate);
             
-            var succes = "Team created:  " + newTeam.Name;
-            return succes;
+            return BaseResult<string>.Ok("Team created:  " + newTeam.Name);
         }
-        catch (Exception e) // 100
+        catch (Exception e) 
         {
             var error = "Creation of Team failed: " + e.Message;
-            return error;
+            return BaseResult<string>.Fail(StatusCodes.Status500InternalServerError, "TeamCreationFailed", error);
         }
     }   
 }

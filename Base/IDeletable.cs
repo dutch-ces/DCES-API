@@ -1,5 +1,3 @@
-namespace API.Base;
-
 public interface IDeletable
 {
     public  bool IsDeleted { get; set; }

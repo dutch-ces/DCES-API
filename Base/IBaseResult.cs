@@ -26,6 +26,11 @@ public class BaseResult<T> : IBaseResult<T>
         ErrorMessage = errorMessage;
     }
 
+    public BaseResult(T data) : this(true, StatusCodes.Status200OK, data) { }
+
+    // Lets methods returning BaseResult<T> just `return data;`.
+    public static implicit operator BaseResult<T>(T data) => Ok(data);
+
     public static BaseResult<T> Ok(T data) => new(true, StatusCodes.Status200OK, data);
 
     public static BaseResult<T> Created(T data) => new(true, StatusCodes.Status201Created, data);
