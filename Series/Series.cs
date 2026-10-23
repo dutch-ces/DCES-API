@@ -25,6 +25,8 @@ public class Series
 
     public bool Tie { get; set; } = false;
 
+    public int BestOf { get; set; }
+
     public DateTime ScheduledDate { get; set; } // Create endpoint, Update endpoint
 
     public bool Played { get; set; } = false;
