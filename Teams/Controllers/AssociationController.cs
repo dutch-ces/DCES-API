@@ -1,23 +1,13 @@
-using API.Teams.AssociationDTOs;
-
-namespace API.Teams.Controllers;
-
-public class AssociationController(IRepository<Association> associationRepository)
+public class AssociationController(AssociationService  associationService)
 {
-    public async Task<string> CreateAssociation(AssociationCreate associationCreate)
+    public async Task<string> CreateAssociation(AssociationCreate associationCreate, CancellationToken cancellationToken)
     {
         try
         {
-            Association newAssociation = new Association
-            {
-                Name = associationCreate.Name,
-                Logo = associationCreate.imageName
-            };
-
-            await associationRepository.AddAsync(newAssociation);
-            
-            var succes = "Association created:  " + newAssociation.Name;
-            return succes;
+                var newAssociation = await associationService.CreateAssociation(associationCreate, cancellationToken);
+                
+                var success = "Association created:  " + newAssociation.Name;
+                return success;
         }
         catch (Exception e) // 100
         {
